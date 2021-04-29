@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using arquivei_api.Context;
 
 namespace arquivei_api.Migrations
 {
     [DbContext(typeof(ArquiveiContext))]
-    partial class ArquiveiContextModelSnapshot : ModelSnapshot
+    [Migration("20210428232655_Add_total_column_tb_nfes")]
+    partial class Add_total_column_tb_nfes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -40,7 +40,7 @@ namespace arquivei_api.Controllers
                 return NotFound(new {code = 404, message = "This register does not exist" });
             }
 
-            return Ok(new { code = 200, message = nfe.Xml });
+            return Ok(new { code = 200, message = nfe.Total });
         }
     }
 }

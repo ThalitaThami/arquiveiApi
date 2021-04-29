@@ -3,8 +3,13 @@ using arquivei_api.Repositories;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.IO;
 using System.Net;
+using System.Security.Cryptography;
+using System.Security.Cryptography.Xml;
+using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace arquivei_api.Services
 { 
@@ -28,12 +33,14 @@ namespace arquivei_api.Services
             var result = GetReceivedByAccessKey(accessKey);
 
             if (result.Code == "200")
-            {
+            {   
                 nfe = new Nfe()
                 {
                     AccessKey = accessKey,
                     Xml = result.Xml
                 };
+
+                nfe.CalculateTotal();
 
                 try
                 {
@@ -82,6 +89,7 @@ namespace arquivei_api.Services
                 };
             }
             
-        }
+        }                
+        
     }
 }
